@@ -233,11 +233,35 @@
             background: #fff;
             border-radius: 10px;
             display: inline-block;
+            cursor: pointer;
+            position: relative;
         }
         
         .qrcode img {
             width: 200px;
             height: 200px;
+            transition: transform 0.3s ease;
+        }
+        
+        .qrcode:hover img {
+            transform: scale(1.05);
+        }
+        
+        .qrcode::after {
+            content: '双击放大';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .qrcode:hover::after {
+            opacity: 1;
         }
         
         .join-info {
@@ -296,6 +320,62 @@
             color: #aaa;
             margin: 20px 0;
             line-height: 1.8;
+        }
+        
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: -40px;
+            right: -10px;
+            color: white;
+            font-size: 36px;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .close-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .instruction {
+            text-align: center;
+            color: white;
+            margin-top: 15px;
+            font-size: 16px;
         }
         
         /* 页脚区域 */
@@ -380,6 +460,10 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+            
+            .qrcode::after {
+                opacity: 1; /* 在移动端总是显示提示 */
+            }
         }
     </style>
 </head>
@@ -434,8 +518,8 @@
                 <!-- 左侧：招新信息 -->
                 <div class="join-left">
                     <h3>扫描二维码加入招新群</h3>
-                    <div class="qrcode">
-                        <img src="image/recruitment-qr.jpg" alt="招新群二维码">
+                    <div class="qrcode" id="qrcode-container">
+                        <img src="image/recruitment-qr.jpg" alt="招新群二维码" id="qrcode-img">
                     </div>
                     <div class="join-info">
                         <h3>招新信息</h3>
@@ -469,6 +553,15 @@
             </div>
         </div>
     </section>
+
+    <!-- 模态框 -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <img id="modal-img" src="" alt="放大后的二维码">
+            <div class="instruction">点击任意处关闭</div>
+        </div>
+    </div>
 
     <!-- 页脚 -->
     <footer>
@@ -526,6 +619,41 @@
             item.addEventListener('click', function() {
                 navLinks.classList.remove('active');
             });
+        });
+        
+        // 二维码双击放大功能
+        const qrcodeContainer = document.getElementById('qrcode-container');
+        const qrcodeImg = document.getElementById('qrcode-img');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const closeBtn = document.getElementById('close-btn');
+        
+        // 双击放大功能
+        qrcodeContainer.addEventListener('dblclick', function() {
+            modalImg.src = qrcodeImg.src;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+        });
+        
+        // 关闭模态框
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // 关闭模态框函数
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // 恢复背景滚动
+        }
+        
+        // 添加键盘事件支持
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
         });
     </script>
 </body>
