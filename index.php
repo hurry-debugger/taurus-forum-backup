@@ -602,7 +602,7 @@
                     </div>
                     <div class="robot-info">
                         <h3>英雄机器人1号</h3>
-                        <p>具备强大火力与机动性的主力机器人，拥有精准的射击系统和灵活的移动能力。采用气动弹丸发射系统，能够发射17mm弹丸，对敌方造成重大威胁。</p>
+                        <p>具备强大火力与机动性的主力机器人，拥有精准的射击系统和灵活的移动能力。采用摩擦轮或气动弹丸发射系统，能够发射42mm弹丸，对敌方基地造成重大威胁。</p>
                         <div class="robot-spec">编号: RM-HERO-001</div>
                     </div>
                 </div>
@@ -614,20 +614,8 @@
                     </div>
                     <div class="robot-info">
                         <h3>工程机器人2号</h3>
-                        <p>负责战场支援与资源收集，具备多种功能模块，是团队中不可或缺的后勤保障。采用全新夹取机构，能够快速搬运矿石和修复基地。</p>
+                        <p>负责战场支援与资源收集，具备多种功能模块，是中不可或缺的后勤保障。机械臂采用并联连杆取机构，能够快速搬运兑换矿石。</p>
                         <div class="robot-spec">编号: RM-ENG-002</div>
-                    </div>
-                </div>
-                
-                <!-- 哨兵机器人 -->
-                <div class="robot-card">
-                    <div class="robot-image">
-                        <img src="image/sentry-robot.jpg" alt="哨兵机器人">
-                    </div>
-                    <div class="robot-info">
-                        <h3>哨兵机器人</h3>
-                        <p>自主巡逻与防御的自动化机器人，配备先进的视觉识别系统，能够自主决策和攻击。固定在基地轨道上移动，提供持续的火力支援和基地防御。</p>
-                        <div class="robot-spec">编号: RM-SEN-003</div>
                     </div>
                 </div>
                 
@@ -638,8 +626,8 @@
                     </div>
                     <div class="robot-info">
                         <h3>步兵机器人3号</h3>
-                        <p>均衡型步兵机器人，兼具火力与机动性。采用舵轮单枪管设计，具备小陀螺能力，能有效应对多种战场情况。发射17mm弹丸，是团队的中坚力量。</p>
-                        <div class="robot-spec">编号: RM-INF-004</div>
+                        <p>高速突击型步兵机器人，兼具火力与机动性。底盘采用串联连杆腿式结构，保障了强大的机动作战能力。辅以单枪管设计和小陀螺能力，能有效应对多种战场情况。发射17mm弹丸，是团队的中坚力量。</p>
+                        <div class="robot-spec">编号: RM-INF-003</div>
                     </div>
                 </div>
                 
@@ -650,8 +638,8 @@
                     </div>
                     <div class="robot-info">
                         <h3>步兵机器人4号</h3>
-                        <p>高速突击型步兵机器人，专注于快速突破和机动战术。优化了底盘设计和动力系统，提供更出色的战场机动性。配备42mm口径发射器，具备区域压制能力。</p>
-                        <div class="robot-spec">编号: RM-INF-005</div>
+                        <p>高速突击型步兵机器人，专注于快速突破和机动战术。底盘同样采用串联连杆腿式结构，提供更出色的战场机动性。配备17mm口径发射器，具备区域压制能力。</p>
+                        <div class="robot-spec">编号: RM-INF-004</div>
                     </div>
                 </div>
                 
@@ -666,6 +654,17 @@
                         <div class="robot-spec">编号: RM-AIR-006</div>
                     </div>
                 </div>
+                <!-- 哨兵机器人 -->
+                <div class="robot-card">
+                    <div class="robot-image">
+                        <img src="image/sentry-robot.jpg" alt="哨兵机器人">
+                    </div>
+                    <div class="robot-info">
+                        <h3>哨兵机器人</h3>
+                        <p>自主巡逻与防御的自动化机器人，配备先进的视觉识别系统和导航系统，能够自主决策和攻击，提供持续的火力支援和基地防御。</p>
+                        <div class="robot-spec">编号: RM-SEN-007</div>
+                    </div>
+                </div>
                 
                 <!-- 雷达机器人 -->
                 <div class="robot-card">
@@ -674,8 +673,8 @@
                     </div>
                     <div class="robot-info">
                         <h3>雷达机器人</h3>
-                        <p>配备先进传感系统的侦察单位，能够探测敌方位置并提供战场情报。具备360度全景扫描能力，为团队提供战术优势和信息支持。</p>
-                        <div class="robot-spec">编号: RM-RDR-007</div>
+                        <p>配备先进传感系统和视觉系统的侦察单位，能够探测敌方位置并提供战场情报。具备扫描能力，为团队提供战术优势和信息支持。</p>
+                        <div class="robot-spec">编号: RM-RDR-005</div>
                     </div>
                 </div>
                 
@@ -686,7 +685,7 @@
                     </div>
                     <div class="robot-info">
                         <h3>飞镖机器人</h3>
-                        <p>专精于远程精确打击的机器人，配备飞镖发射装置。能够激活场地机关并对敌方战略造成干扰，具备改变战局的能力。</p>
+                        <p>专精于远程精确打击的机器人，配备飞镖发射装置。能够远程击打对方基地并对敌方战略造成干扰，具备改变战局的能力。</p>
                         <div class="robot-spec">编号: RM-DRT-008</div>
                     </div>
                 </div>
